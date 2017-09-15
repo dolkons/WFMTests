@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/WFMSkillsManagementTest.iml" filepath="$PROJECT_DIR$/WFMSkillsManagementTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WFMTests.iml" filepath="$PROJECT_DIR$/WFMTests.iml" />
     </modules>
   </component>
 </project>
