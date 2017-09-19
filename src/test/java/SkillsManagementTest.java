@@ -1,6 +1,7 @@
 import Pages.LoginPage;
 import Pages.SkillsMgmtPage;
 import Pages.WfmPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -23,6 +24,7 @@ public class SkillsManagementTest {
     @BeforeClass
     public void setup(){
         chromeDriver = Utils.initializeChromeDriver();
+        chromeDriver.get("https://et.coresystems.net/workforce-management/#/skills");
         wfmPage = new WfmPage(chromeDriver);
         loginPage = new LoginPage(chromeDriver);
         skillPage = new SkillsMgmtPage(chromeDriver);
@@ -42,21 +44,24 @@ public class SkillsManagementTest {
 
     @Test
     public void EmptyName() throws Exception {
-        wfmPage.clickOnSkillsMgmtButton();
         skillPage.clickOnSkillButton();
         skillPage.typeSkillDescription("test");
         skillPage.getSkillDescriptionInput().sendKeys(Keys.TAB);
         assertEquals("Color is not valid! ", skillPage.getSkillNameInput().getCssValue("background-color"),"rgba(255, 191, 191, 1)");
     }
 
-    @Test
+    @Test(enabled = false)
     public void createSkill(){
-        skillPage.typeSkillName("test");
+        skillPage.typeSkillName("testName");
         skillPage.clickOnHeader();
+        System.out.println(skillPage.getSkillsList().findElements(By.tagName("div")).get(1).
+                findElement(By.tagName("table")).findElement(By.tagName("tbody")).
+                findElement(By.tagName("tr")).
+                findElements(By.tagName("td")).get(2).getText());
     }
 
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void finish(){
         if (chromeDriver != null){
             chromeDriver.quit();

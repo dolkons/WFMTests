@@ -2,8 +2,8 @@
 <suite name="Suite1">
     <test name="SkillsManagementTest" >
         <classes>
-            <class name="SkillsManagementTest" >
-            </class>
+            <class name="SkillsManagementTest" ></class>
+            <class name="ServiceCallsTest" ></class>
         </classes>
     </test>
 </suite>

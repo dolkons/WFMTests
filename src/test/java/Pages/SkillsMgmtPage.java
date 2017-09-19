@@ -1,16 +1,9 @@
 package Pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.List;
 
 public class SkillsMgmtPage {
 
@@ -36,6 +29,9 @@ public class SkillsMgmtPage {
     @FindBy(xpath = "//*[@id=\"threecolumns-center-container\"]/div/center-column/h2/span")
     WebElement header;
 
+    @FindBy(className = "skills-list")
+    WebElement skillsList;
+
     public WebElement getSkillNameInput() {
         return skillNameInput;
     }
@@ -46,6 +42,10 @@ public class SkillsMgmtPage {
 
     public WebElement getTechnicianInput() {
         return technicianInput;
+    }
+
+    public WebElement getSkillsList() {
+        return skillsList;
     }
 
     public void clickOnSkillButton(){
@@ -64,8 +64,4 @@ public class SkillsMgmtPage {
         this.header.click();
     }
 
-//    public void waitForLoad(){
-//        WebDriverWait loadWait = new WebDriverWait(driver, 10);
-//        loadWait.until(ExpectedConditions.textToBePresentInElement(header, "Skills"));
-//    }
 }
